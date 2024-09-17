@@ -176,6 +176,7 @@ export default function Component() {
   const [openSafari, setOpenSafari] = useState(false);
   const [openPhantom, setOpenPhantom] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
+  const [openNotes, setOpenNotes] = useState(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -192,8 +193,8 @@ export default function Component() {
   const openMessagesApp = () => setOpenApp('Messages');
   const closeMessagesApp = () => setOpenApp(null);
 
-  const openNotesApp = () => setOpenApp('Notes');
-  const closeNotesApp = () => setOpenApp(null);
+  const openNotesApp = () => setOpenNotes('Notes');
+  const closeNotesApp = () => setOpenNotes(null);
 
   const openAudioPlayerWidget = () => setOpenAudioPlayer(true);
   const closeAudioPlayerWidget = () => setOpenAudioPlayer(false);
@@ -297,7 +298,7 @@ export default function Component() {
         )}
 
       <div className="flex-grow relative">
-        {openApp === 'Notes' && (
+        {openNotes === 'Notes' && (
           <NotesApp close={closeNotesApp} />
         )}
       </div>
