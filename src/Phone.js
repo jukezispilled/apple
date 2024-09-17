@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const Phone = () => {
   const [text, setText] = useState('');
+  const [showModal, setShowModal] = useState(false); // State to manage modal visibility
   const fullText = "Think Different.";
 
   useEffect(() => {
@@ -18,9 +19,17 @@ const Phone = () => {
     return () => clearInterval(typingInterval);
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowModal(true);
+    }, 5000); // Show modal 7 seconds after load
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen bg-white">
-      <div className='absolute bottom-3 text-gray-400 tet-[10px]'>CA: updating...</div>  
+      <div className='absolute bottom-3 text-gray-400 text-[10px]'>CA: updating...</div>  
 
       <div className='absolute top-3 left-3 flex items-center z-[50]'>
         <a href="https://x.com/" className='transition ease-in-out duration-150'>
@@ -43,6 +52,21 @@ const Phone = () => {
         {text}
         <span className="animate-blink">|</span>
       </p>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center z-[100]">
+          <div className="bg-white p-6 rounded-lg mx-[7.5%] border text-center">
+            <p className="text-lg font-semibold text-gray-400">To access the full website, please use a laptop/desktop.</p>
+            <button
+              onClick={() => setShowModal(false)}
+              className="mt-4 px-4 py-2 bg-white border text-gray-400 rounded-md"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
 
       <style jsx>{`
         @keyframes blink {
