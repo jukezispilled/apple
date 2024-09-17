@@ -249,10 +249,10 @@ export default function Component() {
           </div>
         )}
       </span>
-        <a href="">
+        <a href="https://x.com/applesolanalol">
           <span className="mr-4">Twitter</span>
         </a>
-        <a href="">
+        <a href="https://t.me/AAPLPORTAL">
           <span className="mr-4">Telegram</span>
         </a>
         <span className="mr-4">CA: updating...</span>
