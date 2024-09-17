@@ -175,6 +175,7 @@ export default function Component() {
   const [openAudioPlayer, setOpenAudioPlayer] = useState(false);
   const [openSafari, setOpenSafari] = useState(false);
   const [openPhantom, setOpenPhantom] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -183,6 +184,10 @@ export default function Component() {
 
     return () => clearInterval(interval);
   }, []);
+
+  const toggleDropdown = () => {
+    setOpenDropdown(!openDropdown);
+  };
 
   const openMessagesApp = () => setOpenApp('Messages');
   const closeMessagesApp = () => setOpenApp(null);
@@ -203,9 +208,46 @@ export default function Component() {
     <div className="h-screen w-full bg-gradient-to-b from-blue-300 to-blue-600 flex flex-col relative overflow-hidden">
       {/* Top Menu Bar */}
       <div className="bg-gray-200 bg-opacity-80 backdrop-blur-sm text-black flex items-center px-4 h-6 text-xs">
-        <span className="font-semibold mr-4">
-          <img src="app.png" className="size-10" alt="App Icon" />
-        </span>
+      <span className="font-semibold mr-4 relative">
+        <img
+          src="app.png"
+          className="size-10 cursor-pointer"
+          alt="App Icon"
+          onClick={toggleDropdown}
+        />
+        {openDropdown && (
+          <div className="absolute top-full left-0 mt-2 bg-white border border-gray-300 rounded shadow-lg w-40">
+            <div className="grid p-3 space-y-1.5">
+              <div className="text-center"><span className="font-extrabold">AAPL</span> <span className="font-semibold text-gray-600">Apple</span></div>
+              <div>
+                <div className="">Token Supply</div>
+                <div className="text-[10px] font-semibold text-gray-600">1,000,000,000</div>
+              </div>
+              <div>
+                <div className="">Mint</div>
+                <div className="text-[10px] font-semibold text-gray-600">Revoked</div>
+              </div>
+              <div>
+                <div className="">Freeze</div>
+                <div className="text-[10px] font-semibold text-gray-600">Unfreezable</div>
+              </div>
+              <div>
+                <div className="">Tax</div>
+                <div className="text-[10px] font-semibold text-gray-600">0% Tax</div>
+              </div>
+              <div className="">
+                <div className="">Liquidity</div>
+                <div className="flex text-[10px] font-semibold text-gray-600 items-center gap-[2px]">
+                  100%
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="size-[10.5px]">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </span>
         <a href="">
           <span className="mr-4">Twitter</span>
         </a>
