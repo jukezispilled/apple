@@ -6,15 +6,54 @@ const apps = [
   { name: 'Safari', src: 'saf.png' },
   { name: 'Messages', src: 'iMessage.png', notifications: 69 },
   { name: 'iTunes', src: 'itunes.png' },
-  { name: 'Mail', src: 'mail.png' },
+  { name: 'Notes', src: 'notes.png' },
   { name: 'Phantom', src: 'phan.png' },
 ];
 
-const messagesList = [
-  { sender: 'John Doe', message: 'Hey! How are you?', time: '10:23 AM' },
-  { sender: 'Jane Smith', message: 'Lunch today?', time: '9:45 AM' },
-  { sender: 'Mom', message: 'Call me when you can.', time: 'Yesterday' },
+const notesList = [
+  { title: 'Reminder', content: 'DM Cupsey again to get in Trench Grinders', time: 'Today' },
+  { title: 'Private Key(seed)', content: 'gather tuna frost magic arrow leisure whale knee honey legend dash frame', time: 'Yesterday' },
+  { title: 'To-Do', content: '1. Buy milk\n2. Call Mom\n3. Stop FOMOing\n4. Smoke less weed\n5. F*ck b*tches acquire currency', time: 'Last Week' },
 ];
+
+const messagesList = [
+  { sender: 'Ansem', message: 'we gonna run the Apple shit today?', time: '3:23 PM' },
+  { sender: 'Ex GF', message: 'can we please talk?', time: '2:45 PM' },
+  { sender: 'Anatoly(founder)', message: 'Apple can be the official meme. Also...', time: '1:23 PM' },
+  { sender: 'Mom', message: 'you better get me that G-Wagon...', time: 'Yesterday' },
+  { sender: 'Vitalik', message: 'tbh Apple makes me hard. uWu', time: 'Yesterday' },
+];
+
+const NotesApp = ({ close }) => (
+  <Rnd
+    default={{
+      x: 100,
+      y: 100,
+      width: 400,
+      height: 600,
+    }}
+    dragHandleClassName="handle"
+    className="bg-white shadow-lg rounded-lg border border-gray-300 overflow-hidden"
+  >
+    <div className="handle bg-gray-100 p-2 flex justify-between items-center">
+      <span className="font-bold">Notes</span>
+      <button onClick={close} className="text-white font-bold bg-red-500 rounded-full px-2">x</button>
+    </div>
+    <div className="p-4 overflow-y-auto h-[calc(100%-40px)]">
+      <ul>
+        {notesList.map((note, idx) => (
+          <li key={idx} className="mb-4">
+            <div className="bg-gray-200 p-3 rounded-lg">
+              <div className="text-lg font-bold">{note.title}</div>
+              <div className="text-sm mt-1" style={{ whiteSpace: 'pre-line' }}>{note.content}</div>
+              <div className="text-xs text-gray-500 mt-2">{note.time}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </Rnd>
+);
 
 const PhantomWallet = ({ close }) => (
   <Rnd
@@ -148,6 +187,9 @@ export default function Component() {
   const openMessagesApp = () => setOpenApp('Messages');
   const closeMessagesApp = () => setOpenApp(null);
 
+  const openNotesApp = () => setOpenApp('Notes');
+  const closeNotesApp = () => setOpenApp(null);
+
   const openAudioPlayerWidget = () => setOpenAudioPlayer(true);
   const closeAudioPlayerWidget = () => setOpenAudioPlayer(false);
 
@@ -176,6 +218,8 @@ export default function Component() {
           <span>{utcTime} UTC</span>
         </div>
       </div>
+
+      <img src="app.png" className="absolute inset-0 m-auto max-w-full max-h-full" alt="App Icon" />
 
       {/* Main Content Area */}
       <div className="flex-grow relative">
@@ -209,6 +253,12 @@ export default function Component() {
             </div>
           </Rnd>
         )}
+
+      <div className="flex-grow relative">
+        {openApp === 'Notes' && (
+          <NotesApp close={closeNotesApp} />
+        )}
+      </div>
 
         {openAudioPlayer && (
           <Rnd
@@ -281,6 +331,8 @@ export default function Component() {
                 openSafariApp();
               } else if (app.name === 'Phantom') {
                 openPhantomWallet();
+              } else if (app.name === 'Notes') {
+                openNotesApp();
               } else {
                 console.log(app.name);
               }
