@@ -255,7 +255,7 @@ export default function Component() {
         <a href="https://t.me/AAPLPORTAL">
           <span className="mr-4">Telegram</span>
         </a>
-        <span className="mr-4">CA: updating...</span>
+        <span className="mr-4">CA: 5R1zZPj9YzXEdLSg4Gf7n8CyyoYw2mM3dxQnxdu1pump</span>
         <div className="ml-auto flex items-center space-x-4">
           <Clock className="h-4 w-4" />
           <span>{utcTime} UTC</span>
@@ -344,7 +344,7 @@ export default function Component() {
             </div>
             <div className="h-[calc(100%-40px)]">
               <iframe
-                src="https://pump.fun/board" // Replace with your site link
+                src="https://pump.fun/5R1zZPj9YzXEdLSg4Gf7n8CyyoYw2mM3dxQnxdu1pump" // Replace with your site link
                 className="w-full h-full border-0"
                 title="Safari Browser"
               />

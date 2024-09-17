@@ -29,7 +29,7 @@ const Phone = () => {
 
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen bg-white">
-      <div className='absolute bottom-3 text-gray-400 text-[10px]'>CA: updating...</div>  
+      <div className='absolute bottom-3 text-gray-400 text-[10px]'>CA: 5R1zZPj9YzXEdLSg4Gf7n8CyyoYw2mM3dxQnxdu1pump</div>  
 
       <div className='absolute top-3 left-3 flex items-center z-[50]'>
         <a href="https://x.com/applesolanalol" className='transition ease-in-out duration-150'>
