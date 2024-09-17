@@ -1,11 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import Component from "./Mac";
+import Phone from "./Phone";
 
-function App() {
+const ResponsiveComponent = () => {
   return (
-    <div className="h-screen w-screen flex justify-center items-center">
+    <div>
+      <div className="block md:hidden">
+        <Phone />
+      </div>
+      <div className="hidden md:block">
+        <Component />
+      </div>
     </div>
   );
-}
+};
 
-export default App;
+export default ResponsiveComponent;
