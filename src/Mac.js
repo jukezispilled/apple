@@ -262,7 +262,7 @@ export default function Component() {
         </div>
       </div>
 
-      <img src="app.png" className="absolute inset-0 m-auto max-w-full max-h-full" alt="App Icon" />
+      <img src="app1.png" className="absolute inset-0 m-auto w-[30%] pb-20" alt="App Icon" />
 
       {/* Main Content Area */}
       <div className="flex-grow relative">
