@@ -17,11 +17,11 @@ const notesList = [
 ];
 
 const messagesList = [
-  { sender: 'Ansem', message: 'we gonna run the Apple shit today?', time: '3:23 PM' },
+  { sender: 'Ansem', message: 'we gonna run the aDOG shit today?', time: '3:23 PM' },
   { sender: 'Ex GF', message: 'can we please talk?', time: '2:45 PM' },
-  { sender: 'Anatoly(founder)', message: 'Apple can be the official meme. Also...', time: '1:23 PM' },
+  { sender: 'Anatoly(founder)', message: 'aDOG can be the official meme. Also...', time: '1:23 PM' },
   { sender: 'Mom', message: 'you better get me that G-Wagon...', time: 'Yesterday' },
-  { sender: 'Vitalik', message: 'tbh Apple makes me hard. uWu', time: 'Yesterday' },
+  { sender: 'Vitalik', message: 'tbh aDOG makes me hard. uWu', time: 'Yesterday' },
 ];
 
 const NotesApp = ({ close }) => (
@@ -124,7 +124,7 @@ const PhantomWallet = ({ close }) => (
         {/* Assets List */}
         <div className="space-y-4">
           <h3 className="text-lg font-semibold">Your Assets</h3>
-          {['SOL', 'AAPL'].map((token) => (
+          {['SOL', 'aDOG'].map((token) => (
             <div key={token} className="bg-[#2C2B2F] rounded-lg p-4 flex justify-between items-center">
               <div className="flex items-center">
                 <div className="w-10 h-10 rounded-full overflow-hidden mr-3 flex items-center justify-center bg-purple-600">
@@ -219,7 +219,7 @@ export default function Component() {
         {openDropdown && (
           <div className="absolute top-full left-0 mt-2 bg-white border border-gray-300 rounded shadow-lg w-40">
             <div className="grid p-3 space-y-1.5">
-              <div className="text-center"><span className="font-extrabold">AAPL</span> <span className="font-semibold text-gray-600">Apple</span></div>
+              <div className="text-center"><span className="font-extrabold">aDOG</span> <span className="font-semibold text-gray-600">Apple</span></div>
               <div>
                 <div className="">Token Supply</div>
                 <div className="text-[10px] font-semibold text-gray-600">1,000,000,000</div>
@@ -249,13 +249,13 @@ export default function Component() {
           </div>
         )}
       </span>
-        <a href="https://x.com/applesolanalol">
+        <a href="https://x.com/aDOGtoken">
           <span className="mr-4">Twitter</span>
         </a>
-        <a href="https://t.me/AAPLPORTAL">
+        <a href="https://t.me/aDOGport">
           <span className="mr-4">Telegram</span>
         </a>
-        <span className="mr-4">CA: 5R1zZPj9YzXEdLSg4Gf7n8CyyoYw2mM3dxQnxdu1pump</span>
+        <span className="mr-4">CA: soon...</span>
         <div className="ml-auto flex items-center space-x-4">
           <Clock className="h-4 w-4" />
           <span>{utcTime} UTC</span>
@@ -344,7 +344,7 @@ export default function Component() {
             </div>
             <div className="h-[calc(100%-40px)]">
               <iframe
-                src="https://pump.fun/5R1zZPj9YzXEdLSg4Gf7n8CyyoYw2mM3dxQnxdu1pump" // Replace with your site link
+                src="https://pump.fun/" // Replace with your site link
                 className="w-full h-full border-0"
                 title="Safari Browser"
               />
